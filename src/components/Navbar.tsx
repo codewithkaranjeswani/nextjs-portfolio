@@ -1,6 +1,5 @@
-"use client" // this is a client component
-import React from "react"
-import { useState } from "react"
+"use client"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-scroll/modules"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
@@ -29,11 +28,22 @@ const NAV_ITEMS: Array<NavItem> = [
 
 export default function Navbar() {
   const { systemTheme, theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
   const currentTheme = theme === "system" ? systemTheme : theme
+  // console.log(`theme = ${theme}`)
+  // console.log(`currentTheme = ${currentTheme}`)
+  // console.log(`systemTheme = ${systemTheme}`)
   const pathname = usePathname()
   const [navbar, setNavbar] = useState(false)
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  if (!mounted) {
+    return null;
+  }
   return (
-    <header className="w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow bg-white dark:bg-stone-900 dark:border-b dark:border-stone-600">
+    <header className="w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow bg-stone-500 dark:bg-stone-800 dark:border-b dark:border-stone-600">
       <div className="justify-between md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -65,7 +75,7 @@ export default function Navbar() {
                     key={idx}
                     to={item.page}
                     className={
-                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100"
+                      "block lg:inline-block text-neutral-900  hover:text-neutral-700 dark:text-neutral-100 dark:hover:text-neutral-300"
                     }
                     activeClass="active"
                     spy={true}
@@ -81,16 +91,16 @@ export default function Navbar() {
               {currentTheme === "dark" ? (
                 <button
                   onClick={() => setTheme("light")}
-                  className="bg-slate-100 p-2 rounded-xl"
+                  className="bg-stone-500 dark:bg-stone-800 p-2 rounded-xl"
                 >
-                  <RiSunLine size={25} color="black" />
+                  <RiSunLine size={25} color="white" />
                 </button>
               ) : (
                 <button
                   onClick={() => setTheme("dark")}
-                  className="bg-slate-100 p-2 rounded-xl"
+                  className="bg-stone-500 dark:bg-stone-800 p-2 rounded-xl"
                 >
-                  <RiMoonFill size={25} />
+                  <RiMoonFill size={25} color="black" />
                 </button>
               )}
             </div>
