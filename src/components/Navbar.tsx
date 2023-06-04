@@ -51,8 +51,7 @@ function Navbar() {
               smooth={true}
               offset={-100}
               duration={500}
-              onClick={() => setNavbar(!navbar)}
-              >
+            >
               <div className="container flex items-center space-x-2">
                 <h2 className="text-2xl font-bold">Karan Jeswani</h2>
               </div>
@@ -80,7 +79,7 @@ function Navbar() {
                     key={idx}
                     to={item.page}
                     className={
-                      "block lg:inline-block text-neutral-900  hover:text-neutral-700 dark:text-neutral-100 dark:hover:text-neutral-300"
+                      "block lg:inline-block text-neutral-900 dark:text-neutral-100 hover:text-neutral-700 dark:hover:text-neutral-300"
                     }
                     activeClass="active"
                     spy={true}
@@ -96,15 +95,21 @@ function Navbar() {
 
               {(currentTheme === "dark" && mounted) ? (
                 <button
-                  onClick={() => setTheme("light")}
+                  onClick={() => {
+                    setTheme("light")
+                    setNavbar(!navbar)
+                  }}
                   className="bg-stone-500 dark:bg-stone-800 p-2 rounded-xl"
                 >
                   <RiSunLine size={25} color="white" />
                 </button>
               ) : (
                 <button
-                  onClick={() => setTheme("dark")}
-                  className="bg-stone-500 dark:bg-stone-800 p-2 rounded-xl"
+                onClick={() => {
+                  setTheme("dark")
+                  setNavbar(!navbar)
+                }}
+                className="bg-stone-500 dark:bg-stone-800 p-2 rounded-xl"
                 >
                   <RiMoonFill size={25} color="black" />
                 </button>
