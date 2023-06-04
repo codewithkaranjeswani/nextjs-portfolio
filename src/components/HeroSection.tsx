@@ -5,7 +5,7 @@ import Image from "next/image"
 function HeroSection() {
   return (
     <section id="home">
-      <div className="flex flex-col text-center items-center justify-center my-10 py-16">
+      <div className="flex flex-col text-center items-center justify-center mt-20 my-10 py-16 mb-20">
         <div>
           <Image
             className="rounded-full shadow-2xl"
