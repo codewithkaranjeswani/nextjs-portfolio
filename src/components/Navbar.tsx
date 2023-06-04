@@ -26,7 +26,7 @@ const NAV_ITEMS: Array<NavItem> = [
   },
 ]
 
-export default function Navbar() {
+function Navbar() {
   const { systemTheme, theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const currentTheme = theme === "system" ? systemTheme : theme
@@ -39,14 +39,11 @@ export default function Navbar() {
   useEffect(() => {
     setMounted(true)
   }, [])
-  if (!mounted) {
-    return null;
-  }
   return (
     <header className="w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow bg-stone-500 dark:bg-stone-800 dark:border-b dark:border-stone-600">
       <div className="justify-between md:items-center md:flex">
         <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block">
+          <div className="flex items-center justify-between py-3 md:py-5 md:block hover:cursor-pointer">
             <Link to="home">
               <div className="container flex items-center space-x-2">
                 <h2 className="text-2xl font-bold">Karan Jeswani</h2>
@@ -68,7 +65,7 @@ export default function Navbar() {
             className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
               }`}
           >
-            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 hover:cursor-pointer">
               {NAV_ITEMS.map((item, idx) => {
                 return (
                   <Link
@@ -88,7 +85,8 @@ export default function Navbar() {
                   </Link>
                 )
               })}
-              {currentTheme === "dark" ? (
+
+              {(currentTheme === "dark" && mounted) ? (
                 <button
                   onClick={() => setTheme("light")}
                   className="bg-stone-500 dark:bg-stone-800 p-2 rounded-xl"
@@ -110,3 +108,5 @@ export default function Navbar() {
     </header>
   )
 }
+
+export default Navbar
