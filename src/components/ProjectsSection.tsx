@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const projects = [
   {
-    name: "Streamlined Validation",
+    name: "Streamlining Model Validation",
     description:
       "Automating Workflows for system and language agnostic validations",
     // image: "/thankfulthoughts.png",
@@ -39,13 +39,13 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <section id="projects">
-      <div className="pb-48 md:pt-8">
+      <div className="mb-40">
         <h1 className="text-center font-bold text-4xl">
           Projects
           <hr className="w-full h-0.5 mx-auto my-4 bg-teal-900 border-0 rounded"></hr>
         </h1>
 
-        <div className="flex flex-col space-y-10">
+        <div className="flex flex-col space-y-10 pl-8">
           {projects.map((project, idx) => {
             return (
               <div key={idx}>

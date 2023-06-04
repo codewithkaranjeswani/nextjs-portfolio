@@ -19,7 +19,7 @@ const skills = [
 function AboutSection() {
   return (
     <section id="about">
-      <div className="md:pt-8">
+      <div className="mb-20 md:pt-8">
         <h1 className="text-center font-bold text-4xl">
           About Me
           <hr className="w-full h-0.5 mx-auto my-4 bg-teal-900 border-0 rounded"></hr>
