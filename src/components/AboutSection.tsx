@@ -8,6 +8,9 @@ const skills = [
   { skill: "Next.js" },
   { skill: "Tailwind CSS" },
   { skill: "React" },
+  { skill: "C++" },
+  { skill: "Julia" },
+  { skill: "MATLAB" },
   { skill: "HTML" },
   { skill: "Git" },
   { skill: "GitHub" },
@@ -16,7 +19,7 @@ const skills = [
 function AboutSection() {
   return (
     <section id="about">
-      <div className="pb-12 md:pt-8 md:pb-48">
+      <div className="md:pt-8">
         <h1 className="text-center font-bold text-4xl">
           About Me
           <hr className="w-full h-0.5 mx-auto my-4 bg-teal-900 border-0 rounded"></hr>
@@ -56,13 +59,13 @@ function AboutSection() {
             </p> */}
           </div>
           <div className="text-center md:w-1/2 md:text-left">
-            <h1 className="text-2xl font-bold mb-6">My Skills</h1>
+            <h1 className="text-2xl font-bold mb-4">My Skills</h1>
             <div className="flex flex-wrap flex-row justify-center z-10 md:justify-start">
               {skills.map((item, idx) => {
                 return (
                   <p
                     key={idx}
-                    className="px-4 py-2 mr-2 mt-2 text-gray-900 dark:text-gray-500 rounded font-semibold"
+                    className="pr-4 py-2 text-gray-900 dark:text-gray-500 rounded font-semibold"
                   >
                     {item.skill}
                   </p>
