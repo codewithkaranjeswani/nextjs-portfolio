@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
 import { RiMoonFill, RiSunLine } from "react-icons/ri"
 import { IoMdMenu, IoMdClose } from "react-icons/io"
+import DownloadButton from "@/src/components/DownloadButton"
 
 interface NavItem {
   label: string
@@ -40,7 +41,7 @@ function Navbar() {
     setMounted(true)
   }, [])
   return (
-    <header className="w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow bg-stone-500 dark:bg-stone-800 dark:border-b dark:border-stone-600">
+    <header className="w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow bg-stone-200 dark:bg-stone-800 dark:border-b dark:border-stone-600">
       <div className="justify-between md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block hover:cursor-pointer">
@@ -93,23 +94,32 @@ function Navbar() {
                 )
               })}
 
+              <div className="block lg:inline-block text-neutral-900 dark:text-neutral-100 hover:text-neutral-700 dark:hover:text-neutral-300">
+                {(currentTheme === "dark" && mounted) ? (
+                  <DownloadButton color="white" />
+                ) : (
+                  <DownloadButton color="black" />
+                )}
+
+              </div>
+
               {(currentTheme === "dark" && mounted) ? (
                 <button
                   onClick={() => {
                     setTheme("light")
                     setNavbar(!navbar)
                   }}
-                  className="bg-stone-500 dark:bg-stone-800 p-2 rounded-xl"
+                  className="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl"
                 >
                   <RiSunLine size={25} color="white" />
                 </button>
               ) : (
                 <button
-                onClick={() => {
-                  setTheme("dark")
-                  setNavbar(!navbar)
-                }}
-                className="bg-stone-500 dark:bg-stone-800 p-2 rounded-xl"
+                  onClick={() => {
+                    setTheme("dark")
+                    setNavbar(!navbar)
+                  }}
+                  className="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl"
                 >
                   <RiMoonFill size={25} color="black" />
                 </button>

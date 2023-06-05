@@ -7,7 +7,7 @@ import {
 
 function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 right-0 mx-auto w-full px-4 sm:px-6 md:max-w-5xl bg-stone-500 dark:bg-stone-800">
+    <footer className="fixed bottom-0 left-0 right-0 mx-auto w-full px-4 sm:px-6 md:max-w-5xl bg-stone-200 dark:bg-stone-800">
       <hr className="w-full h-0.5 mx-auto mt-8 bg-teal-900 border-0 rounded"></hr>
       <div className="mx-auto  p-4 flex flex-col text-center text-neutral-900 md:flex-row md:justify-between">
         <div className="flex flex-row items-center justify-center space-x-1 text-neutral-900 dark:text-neutral-100 hover:cursor-default">
