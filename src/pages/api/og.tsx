@@ -9,7 +9,7 @@ function Func() {
     (
       <div
         style={{
-          fontSize: 128,
+          fontSize: 24,
           background: "white",
           width: "100%",
           height: "100%",
@@ -19,12 +19,12 @@ function Func() {
           justifyContent: "center",
         }}
       >
-        KJo&apos;s World!
+        👋 Hi I&apos;m Karan!
       </div>
     ),
     {
-      width: 1200,
-      height: 600,
+      width: 200,
+      height: 100,
     },
   );
 }

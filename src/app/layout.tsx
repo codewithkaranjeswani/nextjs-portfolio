@@ -11,9 +11,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <title>KJo&apos;s World!</title>
+        <title>👋 Hi I&apos;m Karan!</title>
         <meta
           property="og:image"
           content="http://karanjeswani.vercel.app/api/og"

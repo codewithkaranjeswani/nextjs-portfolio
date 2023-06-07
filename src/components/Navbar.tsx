@@ -31,9 +31,6 @@ function Navbar() {
   const { systemTheme, theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const currentTheme = theme === "system" ? systemTheme : theme
-  // console.log(`theme = ${theme}`)
-  // console.log(`currentTheme = ${currentTheme}`)
-  // console.log(`systemTheme = ${systemTheme}`)
   const pathname = usePathname()
   const [navbar, setNavbar] = useState(false)
   // useEffect only runs on the client, so now we can safely show the UI
@@ -95,35 +92,35 @@ function Navbar() {
               })}
 
               <div className="block lg:inline-block text-neutral-900 dark:text-neutral-100 hover:text-neutral-700 dark:hover:text-neutral-300">
-                {(currentTheme === "dark" && mounted) ? (
-                  <DownloadButton color="white" />
-                ) : (
-                  <DownloadButton color="black" />
-                )}
-
+                <DownloadButton theme={currentTheme} mounted={mounted} />
               </div>
 
-              {(currentTheme === "dark" && mounted) ? (
-                <button
-                  onClick={() => {
-                    setTheme("light")
-                    setNavbar(!navbar)
-                  }}
-                  className="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl"
-                >
-                  <RiSunLine size={25} color="white" />
+              {(!mounted) ? (
+                <button className="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl">
+                  <RiSunLine size={25} color="#00000000" />
                 </button>
               ) : (
-                <button
-                  onClick={() => {
-                    setTheme("dark")
-                    setNavbar(!navbar)
-                  }}
-                  className="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl"
-                >
-                  <RiMoonFill size={25} color="black" />
-                </button>
-              )}
+                (currentTheme === "dark" && mounted) ? (
+                  <button
+                    onClick={() => {
+                      setTheme("light")
+                      setNavbar(!navbar)
+                    }}
+                    className="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl"
+                  >
+                    <RiSunLine size={25} color="white" />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setTheme("dark")
+                      setNavbar(!navbar)
+                    }}
+                    className="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl"
+                  >
+                    <RiMoonFill size={25} color="black" />
+                  </button>
+                ))}
             </div>
           </div>
         </div>
