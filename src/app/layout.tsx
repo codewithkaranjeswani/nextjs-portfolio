@@ -18,6 +18,11 @@ export default function RootLayout({
           property="og:image"
           content="http://karanjeswani.vercel.app/api/og"
         />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@karanjeswani306" />
+        <meta name="twitter:title" content="👋 Hi I&apos;m Karan!" />
+        <meta name="twitter:description" content="Karan Jeswani's Portfolio" />
+        <meta name="twitter:image" content="https//karanjeswani.vercel.app/api/og" />
       </head>
       <body className="bg-stone-200 dark:bg-stone-800 flex flex-col min-h-screen">
         <ThemeProvider enableSystem={true} attribute="class">
