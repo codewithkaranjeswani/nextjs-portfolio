@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import "@/styles/globals.css";
+import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 
 const fontSans = FontSans({
